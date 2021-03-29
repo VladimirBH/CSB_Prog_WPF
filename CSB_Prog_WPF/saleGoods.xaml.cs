@@ -23,5 +23,6 @@ namespace CSB_Prog_WPF
         {
             InitializeComponent();
         }
+        //Тест
     }
 }
