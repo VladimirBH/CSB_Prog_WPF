@@ -118,7 +118,7 @@
     <Compile Include="forProvider.xaml.cs">
       <DependentUpon>forProvider.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\ConnectionPostgreSQL.cs" />
+    <Compile Include="Models\ConnectionMSSQL.cs" />
     <Compile Include="report.cs">
       <SubType>Form</SubType>
     </Compile>

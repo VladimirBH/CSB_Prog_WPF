@@ -3,6 +3,7 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace CSB_program
     /// </summary>
     public partial class MainWindow : Window
     {
-        private NpgsqlCommand cmd;
+        private SqlCommand cmd;
         private string sqlCmd;
         public MainWindow()
         {
@@ -31,7 +32,7 @@ namespace CSB_program
         }
         public void btn_Submit_Click(object sender, RoutedEventArgs e) 
         {
-            ConnectionPostgreSQL connPostgres = new ConnectionPostgreSQL();
+            ConnectionMSSQL connMSSQl = new ConnectionMSSQL();
 
             string idUser = "";
             string hashPassFromDB = "";
@@ -40,16 +41,16 @@ namespace CSB_program
             {
                 try
                 {
-                    using (NpgsqlConnection cn = connPostgres.conn)
+                    using (SqlConnection cn = connMSSQl.conn)
                     {
                         cn.Open();
                         sqlCmd = @"select id, password from employees " +
                             "where login='" + textboxLogin.Text + "';";
-                        cmd = new NpgsqlCommand();
+                        cmd = new SqlCommand();
                         cmd.Connection = cn;
                         cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = sqlCmd;
-                        NpgsqlDataReader rdr;
+                        SqlDataReader rdr;
                         if ((rdr = cmd.ExecuteReader()) != null)
                         {
                             while (rdr.Read())
@@ -74,7 +75,7 @@ namespace CSB_program
                         cmd.Dispose();
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     MessageBox.Show("Не удалось подключиться к базе данных \n" + ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
