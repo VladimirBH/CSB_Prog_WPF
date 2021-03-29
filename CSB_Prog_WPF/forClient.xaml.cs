@@ -22,6 +22,7 @@ namespace CSB_Prog_WPF
         public forClient()
         {
             InitializeComponent();
+            //hello
         }
     }
 }
