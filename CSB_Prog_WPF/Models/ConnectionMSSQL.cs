@@ -11,9 +11,12 @@ namespace CSB_Prog_WPF.Models
     class ConnectionMSSQL
     {
         public SqlConnection conn;
+        public SqlCommand cmdSql;
         public ConnectionMSSQL() 
         {
             conn = new SqlConnection(Properties.Settings.Default.consting);
+            cmdSql = new SqlCommand();
+            cmdSql.Connection = conn;
         }
 
     }
