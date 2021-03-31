@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSB_program"
         mc:Ignorable="d"
-        Title="Авторизация" Height="380" Width="328" Icon="logo.ico" FontFamily="Verdana" FontSize="13" Background="White">
+        Title="Авторизация" Height="380" Width="328" Icon="logo.ico" FontFamily="Verdana" FontSize="13" Background="White" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Name="prog" TargetType="Button">
             <Setter Property="Template">

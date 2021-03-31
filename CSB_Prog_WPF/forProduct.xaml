@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSB_Prog_WPF"
         mc:Ignorable="d"
-        Height="560" Width="1250" FontFamily="Verdana" FontSize="14">
+        Height="560" Width="1250" FontFamily="Verdana" FontSize="14" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Name="prog" TargetType="Button">
             <Setter Property="Template">

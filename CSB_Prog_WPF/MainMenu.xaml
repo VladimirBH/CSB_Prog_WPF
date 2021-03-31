@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Closing="Window_Closing"
-        Title="Главное меню" Height="500" Width="650">
+        Title="Главное меню" Height="500" Width="650" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Name="prog" TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -46,8 +46,8 @@
         <Label x:Name="labelNameDadNm" Content="Владимир Витальевич" Margin="10,78,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" Grid.Column="1" HorizontalAlignment="Left" Width="178"/>
         <Label x:Name="labelPos" Content="Генеральный директор" Margin="10,110,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" Grid.Column="1" HorizontalAlignment="Left" Width="178"/>
         <Label x:Name="labelAccCat" Content="5" Margin="10,142,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" Grid.Column="1" HorizontalAlignment="Left" Width="143"/>
-        <Button x:Name="btnEmp" Content="Сотрудники" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnPos" Content="Должности" Grid.Column="2" HorizontalAlignment="Left" Margin="10,48,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnEmp" Click="btnEmp_Click" Content="Сотрудники" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnPos" Content="Должности" Grid.Column="2" HorizontalAlignment="Left" Click="btnPos_Click" Margin="10,48,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
         <Button x:Name="btnSaleReceipt" Content="Товарные чеки" Grid.Column="2" HorizontalAlignment="Left" Margin="10,86,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
         <Button x:Name="btnGoods" Content="Товары" Grid.Column="2" HorizontalAlignment="Left" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
         <Button x:Name="btnClients" Content="Клиенты" Grid.Column="2" HorizontalAlignment="Left" Margin="10,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>

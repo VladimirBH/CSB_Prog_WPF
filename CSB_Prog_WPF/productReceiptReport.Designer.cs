@@ -29,6 +29,7 @@ namespace CSB_program
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(productReceiptReport));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -36,7 +37,6 @@ namespace CSB_program
             // 
             this.reportViewer1.Location = new System.Drawing.Point(12, 59);
             this.reportViewer1.Name = "reportViewer1";
-           // this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(776, 379);
             this.reportViewer1.TabIndex = 0;
             // 
@@ -46,6 +46,9 @@ namespace CSB_program
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "productReceiptReport";
             this.Text = "productReceiptReport";
             this.Load += new System.EventHandler(this.productReceiptReport_Load);
