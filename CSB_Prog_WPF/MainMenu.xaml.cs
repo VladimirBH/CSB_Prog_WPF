@@ -1,4 +1,5 @@
-﻿using CSB_Prog_WPF.Models;
+﻿using CSB_Prog_WPF;
+using CSB_Prog_WPF.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,8 +26,8 @@ namespace CSB_program
     {
 
 
-        public string idUser;
-        public int accCat;
+        private string idUser;
+        private int accCat;
         public MainMenu(string _idUser)
         {
             idUser = _idUser;
@@ -53,45 +54,86 @@ namespace CSB_program
             labelPos.Content = dt.Rows[0]["job_title"].ToString();
             labelAccCat.Content = dt.Rows[0]["access_category"].ToString();
             accCat = Convert.ToInt32(dt.Rows[0]["access_category"]);
-            switch (accCat)
-            {
-                case 1:
-                    btnSaleGoods.Visibility = Visibility.Hidden;
-                    btnClients.Visibility = Visibility.Hidden;
-                    btnEmp.Visibility = Visibility.Hidden;
-                    btnPayType.Visibility = Visibility.Hidden;
-                    btnPos.Visibility = Visibility.Hidden;
-                    btnSales.Visibility = Visibility.Hidden;
-                    btnSaleReceipt.Visibility = Visibility.Hidden;
-                    //Grid.Column = 1
-                    btnOrders.Margin = new Thickness(0, 10, 10, 0);
-                    btnReports.Margin = new Thickness(0, 48, 10, 0);
-                    btnBuyGoods.Margin = new Thickness(0, 86, 10, 0);
-                    btnCat.Margin = new Thickness(0, 124, 10, 0);
-                    //Grid.Column = 2
-                    btnGoods.Margin = new Thickness(10, 10, 0, 0);
-                    btnProviders.Margin = new Thickness(10, 48, 0, 0);
-                    btnInvoices.Margin = new Thickness(10, 86, 0, 0);
-                    break;
-                case 2:
-                    btnProviders.Visibility = Visibility.Hidden;
-                    btnOrders.Visibility = Visibility.Hidden;
-                    btnBuyGoods.Visibility = Visibility.Hidden;
-                    btnEmp.Visibility = Visibility.Hidden;
-                    btnInvoices.Visibility = Visibility.Hidden;
-                    btnPos.Visibility = Visibility.Hidden;
-                    //Grid.Column = 1
-                    btnSales.Margin = new Thickness(0, 10, 10, 0);
-                    btnCat.Margin = new Thickness(0, 48, 10, 0);
-                    btnReports.Margin = new Thickness(0, 86, 10, 0);
-                    btnSaleGoods.Margin = new Thickness(0, 124, 10, 0);
-                    btnPayType.Margin = new Thickness(0, 162, 10, 0);
-                    //Grid.Column = 2
-                    btnSaleReceipt.Margin = new Thickness(10, 10, 0, 0);
-                    btnGoods.Margin = new Thickness(10, 48, 0, 0);
-                    btnClients.Margin = new Thickness(10, 86, 0, 0);
+            /*
+            ---------------------------------------
+            Для 1 уровня доступа
 
-                    break;
+            Orders
+            Reports
+            BuyGoods - поставка товаров
+            Categories
+            Goods
+            Providers
+            Reports - отчеты
+            Invoices
+
+            ---------------------------------------
+            */
+            if (accCat == 1)
+            {
+                btnSaleGoods.Visibility = Visibility.Hidden;
+                btnClients.Visibility = Visibility.Hidden;
+                btnEmp.Visibility = Visibility.Hidden;
+                btnPayType.Visibility = Visibility.Hidden;
+                btnPos.Visibility = Visibility.Hidden;
+                btnSales.Visibility = Visibility.Hidden;
+                btnSaleReceipt.Visibility = Visibility.Hidden;
+                btnCatForGds.Visibility = Visibility.Hidden;
+                //Grid.Column = 1
+                btnOrders.Margin = new Thickness(0, 10, 10, 0);
+                btnReports.Margin = new Thickness(0, 48, 10, 0);
+                btnBuyGoods.Margin = new Thickness(0, 86, 10, 0);
+                btnCat.Margin = new Thickness(0, 124, 10, 0);
+                //Grid.Column = 2
+                btnGoods.Margin = new Thickness(10, 10, 0, 0);
+                btnProviders.Margin = new Thickness(10, 48, 0, 0);
+                btnInvoices.Margin = new Thickness(10, 86, 0, 0);
+            }
+            /*
+            ---------------------------------------
+            Для 2 уровня доступа
+
+            Categories
+            Goods
+            SaleGoods - продажа товара
+            PaymentType
+            SaleReceipt
+            Clients
+            Reports - отчеты
+            ---------------------------------------
+            */
+            else if (accCat == 2)
+            {
+                btnProviders.Visibility = Visibility.Hidden;
+                btnOrders.Visibility = Visibility.Hidden;
+                btnBuyGoods.Visibility = Visibility.Hidden;
+                btnEmp.Visibility = Visibility.Hidden;
+                btnInvoices.Visibility = Visibility.Hidden;
+                btnPos.Visibility = Visibility.Hidden;
+                btnSales.Visibility = Visibility.Hidden;
+                btnCatForGds.Visibility = Visibility.Hidden;
+                //Grid.Column = 1
+                btnCat.Margin = new Thickness(0, 10, 10, 0);
+                btnReports.Margin = new Thickness(0, 48, 10, 0);
+                btnSaleGoods.Margin = new Thickness(0, 86, 10, 0);
+                btnPayType.Margin = new Thickness(0, 124, 10, 0);
+                //Grid.Column = 2
+                btnSaleReceipt.Margin = new Thickness(10, 10, 0, 0);
+                btnGoods.Margin = new Thickness(10, 48, 0, 0);
+                btnClients.Margin = new Thickness(10, 86, 0, 0);
+            }
+            /*
+            ---------------------------------------
+            Для 3 и 4 уровней доступа
+
+            Все кроме используемых для связи таблиц
+            
+            ---------------------------------------
+            */
+            else if (accCat==3 || accCat == 4)
+            {
+                btnCatForGds.Visibility = Visibility.Hidden;
+                btnSales.Visibility = Visibility.Hidden;
             }
             try
             {
@@ -107,16 +149,102 @@ namespace CSB_program
             }
         }
 
-        private void btnEmp_Click(object sender, RoutedEventArgs e)
+        private void openViewTable(string selectedTable) 
         {
-            viewTables viewTables = new viewTables(Convert.ToInt32(idUser), "employees");
+            viewTables viewTables = new viewTables(Convert.ToInt32(idUser), selectedTable, accCat);
             viewTables.ShowDialog();
         }
 
+        //Нажатие на кнопку Сотрудники
+        private void btnEmp_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("employees");
+        }
+
+        //Нажатие на кнопку Должности
         private void btnPos_Click(object sender, RoutedEventArgs e)
         {
-            viewTables viewTables = new viewTables(Convert.ToInt32(idUser), "positions");
-            viewTables.ShowDialog();
+            openViewTable("positions");
+        }
+
+        //Нажатие на кнопку Товарный чек
+        private void btnSaleReceipt_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("sales_receipt");
+        }
+
+        //Нажатие на кнопку Товары
+        private void btnGoods_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("goods");
+        }
+
+        //Нажатие на кнопку Клиенты
+        private void btnClients_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("clients");
+        }
+
+        //Нажатие на кнопку Поставщики
+        private void btnProviders_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("provider");
+        }
+
+        //Нажатие на кнопку Приходная накладная
+        private void btnInvoices_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("purchase_invoice");
+        }
+
+        //Нажатие на кнопку Категории для товаров
+        private void btnCatForGds_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("goods_categories");
+        }
+
+        //Нажатие на кнопку Категории
+        private void btnCat_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("categories");
+        }
+
+        //Нажатие на кнопку Способ оплаты
+        private void btnPayType_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("payment_type");
+        }
+
+        //Нажатие на кнопку Заказы
+        private void btnOrders_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("orders");
+        }
+        
+        //Нажатие на кнопку Продажи
+        private void btnSales_Click(object sender, RoutedEventArgs e)
+        {
+            openViewTable("sales");
+        }
+
+        //Нажатие на кнопку Отчеты
+        private void btnReports_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //Нажатие на кнопку Покупка товаров
+        private void btnBuyGoods_Click(object sender, RoutedEventArgs e)
+        {
+            saleGoods saleGds = new saleGoods(Convert.ToInt32(idUser));
+            saleGds.Show();
+        }
+
+        //Нажатие на кнопку Продажа товаров
+        private void btnSaleGoods_Click(object sender, RoutedEventArgs e)
+        {
+            forProduct product = new forProduct(Convert.ToInt32(idUser));
+            product.Show();
         }
     }
 }

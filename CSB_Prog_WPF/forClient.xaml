@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSB_Prog_WPF"
         mc:Ignorable="d"
-Height="446.45" Width="465" FontFamily="Verdana" FontSize="14" Foreground="#FF090057" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Loaded="Window_Loaded"
+Height="450.45" Width="504" FontFamily="Verdana" FontSize="14" Foreground="#FF090057" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Name="prog" TargetType="Button">
             <Setter Property="Template">
@@ -26,9 +27,9 @@ Height="446.45" Width="465" FontFamily="Verdana" FontSize="14" Foreground="#FF09
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="182"/>
-            <ColumnDefinition Width="135"/>
-            <ColumnDefinition Width="475"/>
+            <ColumnDefinition Width="206"/>
+            <ColumnDefinition Width="138"/>
+            <ColumnDefinition Width="448"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="65"/>
@@ -40,22 +41,21 @@ Height="446.45" Width="465" FontFamily="Verdana" FontSize="14" Foreground="#FF09
             <RowDefinition Height="40"/>
             <RowDefinition Height="68"/>
         </Grid.RowDefinitions>
-        <Label Content="Внесение покупателя в базу" HorizontalAlignment="Left" Margin="10,11,0,11" Foreground="#FF090057" FontSize="25" Width="382" Grid.ColumnSpan="3"/>
-        <Label Content="Фамилия:" Margin="96,5,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF090057" Height="30" HorizontalAlignment="Left" Width="81" RenderTransformOrigin="0.595,0.594"/>
-        <Label Content="Имя:" Margin="132,5,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF090057" Height="30" RenderTransformOrigin="0.548,0.057" HorizontalAlignment="Left" Width="45"/>
-        <Label Content="Отчество:" Margin="95,5,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" Height="30" HorizontalAlignment="Left" Width="82"/>
-        <Label Content="Дата рождения:" Margin="50,5,0,0" Grid.Row="4" VerticalAlignment="Top" Foreground="#FF090057" Height="30" HorizontalAlignment="Left" Width="127"/>
-        <Label Content="Номер телефона:" Margin="40,5,5,0" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
-        <Label Content="Адрес проживания:" Margin="24,5,5,0" Grid.Row="5" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
-        <TextBox Grid.Column="1" Margin="10,5,0,5" Grid.Row="1" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" Height="30"/>
-        <TextBox Grid.Column="1" Height="30" Margin="10,5,0,5" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2"/>
-        <TextBox Grid.Column="1" Height="30" Margin="10,5,0,5" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2"/>
-        <TextBox Grid.Column="1" Height="30" Margin="10,5,0,5" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2"/>
-        <TextBox Height="90" Margin="10,5,0,5" Grid.Row="5" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="1" MaxLength="50" Padding="5,2" BorderBrush="#FF090057" TextWrapping="Wrap" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <DatePicker Grid.Column="1" Margin="10,5,0,5" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,0,0,0" Height="30" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="btnSubmit" Content="Ок" Margin="10,11,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Height="24" Foreground="White" Background="#FFFF9000" Grid.Row="7" FontWeight="Bold" Cursor="Hand" Grid.Column="1" HorizontalAlignment="Left" Width="120"/>
-        <Button x:Name="btnCancel" Content="Отмена" HorizontalAlignment="Left" Margin="5,11,0,0" VerticalAlignment="Top" Width="120" FontFamily="Verdana" FontSize="14" Height="24" Foreground="White" Background="#FFFF9000" Grid.Row="7" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
-        <TextBox Grid.Column="1" Height="30" Margin="10,5,5,0" Grid.Row="4" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2"/>
+        <Label x:Name="labelTitle" Content="Внесение покупателя в базу" HorizontalAlignment="Left" Margin="10,11,0,11" Foreground="#FF090057" FontSize="20" Width="382" Grid.ColumnSpan="3"/>
+        <Label Content="Фамилия:" Margin="107,5,5,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF090057" Height="30" RenderTransformOrigin="0.595,0.594" FontSize="16"/>
+        <Label Content="Имя:" Margin="148,5,5,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF090057" Height="30" RenderTransformOrigin="0.548,0.057" FontSize="16"/>
+        <Label Content="Отчество:" Margin="108,5,5,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" Height="30" FontSize="16"/>
+        <Label Content="Дата рождения:" Margin="55,5,5,0" Grid.Row="4" VerticalAlignment="Top" Foreground="#FF090057" Height="30" FontSize="16"/>
+        <Label Content="Номер телефона:" Margin="46,5,5,0" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" Height="30" FontSize="16"/>
+        <Label Content="Адрес проживания:" Margin="26,5,5,0" Grid.Row="5" VerticalAlignment="Top" Foreground="#FF090057" Height="30" FontSize="16"/>
+        <TextBox x:Name="textBoxSurname" Grid.Column="1" Margin="10,5,0,5" Grid.Row="1" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" FontSize="16"/>
+        <TextBox x:Name="textBoxName" Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" FontSize="16"/>
+        <TextBox x:Name="textBoxDadNm" Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" FontSize="16"/>
+        <TextBox x:Name="textBoxTelNum" Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" FontSize="16"/>
+        <TextBox x:Name="textBoxAddress" Height="90" Margin="10,5,0,0" Grid.Row="5" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="1" MaxLength="50" Padding="5,2" BorderBrush="#FF090057" TextWrapping="Wrap" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" Grid.Column="1" FontSize="16"/>
+        <DatePicker x:Name="datePickerBirth" Grid.Column="1" Margin="10,5,0,0" Grid.Row="4" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,5,0,0" Height="30" HorizontalAlignment="Left" Width="250" Grid.ColumnSpan="2" FontSize="16"/>
+        <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Ок" Margin="8,11,10,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="16" Height="24" Foreground="White" Background="#FFFF9000" Grid.Row="7" FontWeight="Bold" Cursor="Hand" Grid.Column="1"/>
+        <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отмена" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="120" FontFamily="Verdana" FontSize="16" Height="24" Foreground="White" Background="#FFFF9000" Grid.Row="7" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
 
     </Grid>
 </Window>

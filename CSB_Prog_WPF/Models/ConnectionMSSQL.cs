@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CSB_Prog_WPF.Models
 {
@@ -15,15 +16,16 @@ namespace CSB_Prog_WPF.Models
         public SqlCommand cmdSql;
         public ConnectionMSSQL() 
         {
-            conn = new SqlConnection(Properties.Settings.Default.consting);
+            conn = new SqlConnection();
+            conn.ConnectionString = Properties.Settings.Default.consting;
             cmdSql = new SqlCommand();
             cmdSql.Connection = conn;
         }
 
         public DataTable getInDataTable(string sqlRequest) 
         {
-            try
-            {
+            /*try
+            {*/
                 using (conn)
                 {
                     conn.Open();
@@ -54,11 +56,11 @@ namespace CSB_Prog_WPF.Models
                     rdr.Close();
                     return dt;
                 }
-            }
+            /*}
             catch (SqlException ex) 
             {
                 return null;
-            }
+            }*/
         } 
     }
 }

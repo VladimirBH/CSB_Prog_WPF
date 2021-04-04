@@ -19,9 +19,14 @@ namespace CSB_Prog_WPF
     /// </summary>
     public partial class saleGoods : Window
     {
-        public saleGoods()
+        public int idUser;
+        public saleGoods(int _idUser)
         {
             InitializeComponent();
+            idUser = _idUser;
         }
+
+        
+
     }
 }

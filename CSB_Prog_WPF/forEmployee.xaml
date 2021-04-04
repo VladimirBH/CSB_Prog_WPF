@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSB_Prog_WPF"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
  Height="608.408" Width="514" FontFamily="Verdana" FontSize="14" Foreground="#FF090057" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Name="prog" TargetType="Button">
@@ -44,30 +45,30 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="145"/>
         </Grid.RowDefinitions>
-        <Label Content="Внесение сотрудника в базу" HorizontalAlignment="Left" Margin="10,5,0,4" Foreground="#FF090057" FontSize="25" Width="382" Grid.ColumnSpan="3"/>
+        <Label x:Name="labelTitle" Content="Внесение сотрудника в базу" HorizontalAlignment="Left" Margin="10,5,0,4" Foreground="#FF090057" FontSize="25" Width="382" Grid.ColumnSpan="3"/>
         <Label Content="Фамилия:" Margin="96,5,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF090057" Height="30" HorizontalAlignment="Left" Width="81" RenderTransformOrigin="0.595,0.594"/>
         <Label Content="Имя:" Margin="132,5,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF090057" Height="30" RenderTransformOrigin="0.548,0.057" HorizontalAlignment="Left" Width="45"/>
         <Label Content="Отчество:" Margin="95,5,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" Height="30" HorizontalAlignment="Left" Width="82"/>
         <Label Content="Дата рождения:" Margin="50,5,0,0" Grid.Row="4" VerticalAlignment="Top" Foreground="#FF090057" Height="30" HorizontalAlignment="Left" Width="127"/>
         <Label Content="Номер телефона:" Margin="40,5,5,0" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
         <Label Content="Адрес проживания:" Margin="24,5,5,0" Grid.Row="5" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
-        <TextBox Grid.Column="1" Margin="10,5,0,3" Grid.Row="1" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
-        <TextBox Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
-        <TextBox Height="30" Margin="10,5,0,0" Grid.Row="9" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBox Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
-        <TextBox Height="90" Margin="10,5,0,0" Grid.Row="5" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="1" MaxLength="50" Padding="5,2" BorderBrush="#FF090057" TextWrapping="Wrap" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <DatePicker Grid.Column="1" Margin="10,5,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,0,0,0" Height="30" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
-        <TextBox Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="4" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxSurname" Grid.Column="1" Margin="10,5,0,3" Grid.Row="1" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxName" Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxLogin" Height="30" Margin="10,5,0,0" Grid.Row="9" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="textBoxTelNum" Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxAddress" Height="90" Margin="10,5,0,0" Grid.Row="5" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="1" MaxLength="50" Padding="5,2" BorderBrush="#FF090057" TextWrapping="Wrap" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <DatePicker x:Name="datePickerBirth" Grid.Column="1" Margin="10,5,0,0" Grid.Row="4" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,5,0,0" Height="30" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxDadNm" Height="30" Margin="10,5,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Grid.Column="1"/>
         <Label Content="Должность:" Margin="82,5,5,0" Grid.Row="7" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
         <Label Content="Разряд (если есть):" Margin="24,5,5,0" Grid.Row="8" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
         <Label Content="Логин:" Margin="117,5,5,0" Grid.Row="9" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
         <Label Content="Пароль:" Margin="108,5,5,0" Grid.Row="10" VerticalAlignment="Top" Foreground="#FF090057" Height="30"/>
-        <ComboBox Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="8" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Background="{x:Null}"/>
-        <ComboBox Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="7" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Background="{x:Null}"/>
+        <ComboBox x:Name="comboBoxClass" Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="8" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Background="{x:Null}"/>
+        <ComboBox x:Name="comboBoxPos" DropDownClosed="comboBoxPos_DropDownClosed" Grid.Column="1" Height="30" Margin="10,5,0,0" Grid.Row="7" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="300" Grid.ColumnSpan="2" Background="{x:Null}"/>
         <CheckBox Content="Показать" Grid.Column="2" HorizontalAlignment="Left" Margin="90,11,0,0" Grid.Row="10" VerticalAlignment="Top" BorderBrush="#FF090057" Foreground="#FF090057"/>
-        <PasswordBox Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="10" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="200" Foreground="#FF090057" BorderBrush="#FF090057" BorderThickness="0,0,0,1" Height="30"/>
-        <Button x:Name="btnSubmit" Content="Ок" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="11" FontWeight="Bold" Cursor="Hand" Grid.Column="1"/>
-        <Button x:Name="btnCancel" Content="Отмена" HorizontalAlignment="Center" Margin="10,10,96,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="11" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
+        <PasswordBox x:Name="textBoxPass" Grid.Column="1" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="10" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="200" Foreground="#FF090057" BorderBrush="#FF090057" BorderThickness="0,0,0,1" Height="30" Padding="0,5,0,0"/>
+        <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Ок" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="11" FontWeight="Bold" Cursor="Hand" Grid.Column="1"/>
+        <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отмена" HorizontalAlignment="Center" Margin="10,10,96,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="11" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
 
     </Grid>
 </Window>

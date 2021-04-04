@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Closing="Window_Closing"
-        Title="Главное меню" Height="500" Width="650" WindowStartupLocation="CenterScreen">
+        Title="Главное меню" Height="570" Width="760" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Name="prog" TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -28,40 +28,43 @@
         </Style>
     </Window.Resources>
     <Grid>
-       <Grid.RowDefinitions>
-            <RowDefinition Height="174*"/>
-            <RowDefinition Height="295*"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="196"/>
+            <RowDefinition Height="333"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="157*"/>
-            <ColumnDefinition Width="248*"/>
-            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="262"/>
+            <ColumnDefinition Width="258"/>
         </Grid.ColumnDefinitions>
-       
-        <Label Content="Имя Отчество:" Margin="33,78,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" HorizontalAlignment="Left" Width="119"/>
-        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="68,46,0,0" VerticalAlignment="Top" Width="84" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27"/>
-        <Label Content="Должность:" Margin="54,110,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" HorizontalAlignment="Left" Width="99"/>
-        <Label Content="Уровень доступа:" Margin="11,142,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" HorizontalAlignment="Left" Width="143"/>
-        <Label x:Name="labelSurname" Content="Бурбах" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="84" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" Grid.Column="1"/>
-        <Label x:Name="labelNameDadNm" Content="Владимир Витальевич" Margin="10,78,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" Grid.Column="1" HorizontalAlignment="Left" Width="178"/>
-        <Label x:Name="labelPos" Content="Генеральный директор" Margin="10,110,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" Grid.Column="1" HorizontalAlignment="Left" Width="178"/>
-        <Label x:Name="labelAccCat" Content="5" Margin="10,142,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="14" Height="27" Grid.Column="1" HorizontalAlignment="Left" Width="143"/>
-        <Button x:Name="btnEmp" Click="btnEmp_Click" Content="Сотрудники" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnPos" Content="Должности" Grid.Column="2" HorizontalAlignment="Left" Click="btnPos_Click" Margin="10,48,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnSaleReceipt" Content="Товарные чеки" Grid.Column="2" HorizontalAlignment="Left" Margin="10,86,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnGoods" Content="Товары" Grid.Column="2" HorizontalAlignment="Left" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnClients" Content="Клиенты" Grid.Column="2" HorizontalAlignment="Left" Margin="10,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnProviders" Content="Поставщики" Grid.Column="2" HorizontalAlignment="Left" Margin="10,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnInvoices" Content="Товарные накладные" Grid.Column="2" HorizontalAlignment="Left" Margin="10,238,0,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
-        <Button x:Name="btnCat" Content="Категории товара" HorizontalAlignment="Right" Margin="0,10,9,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
-        <Button x:Name="btnPayType" Content="Способы оплаты" HorizontalAlignment="Right" Margin="0,48,10,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
-        <Button x:Name="btnOrders" Content="Заказы" HorizontalAlignment="Right" Margin="0,86,10,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
-        <Button x:Name="btnSales" Content="Продажи" HorizontalAlignment="Right" Margin="0,124,10,0" Grid.Row="1" VerticalAlignment="Top" Width="219" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
-        <Image Source="smaller_logo.png" Margin="49,19" Grid.Column="2" />
-        <Button x:Name="btnReports" Content="Отчеты" Margin="0,162,10,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand" HorizontalAlignment="Right" Width="219"/>
-        <Button x:Name="btnBuyGoods" Content="Прибытие товаров" Margin="19,200,10,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
-        <Button x:Name="btnSaleGoods" Content="Продажа товаров" Margin="19,238,10,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
 
-       
+        <Label Content="Имя Отчество:" Margin="0,78,10,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="32" HorizontalAlignment="Right" Width="133"/>
+        <Label Content="Фамилия:" Margin="0,46,10,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="32" HorizontalAlignment="Right" Width="94"/>
+        <Label Content="Должность:" Margin="0,110,10,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="32" HorizontalAlignment="Right" Width="111"/>
+        <Label Content="Уровень доступа:" Margin="0,142,10,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="33" HorizontalAlignment="Right" Width="160"/>
+        
+        <Button x:Name="btnEmp" Click="btnEmp_Click" Content="Сотрудники" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnPos" Content="Должности" Grid.Column="2" HorizontalAlignment="Left" Click="btnPos_Click" Margin="10,48,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnSaleReceipt" Click="btnSaleReceipt_Click" Content="Товарные чеки" Grid.Column="2" HorizontalAlignment="Left" Margin="10,86,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnGoods" Click="btnGoods_Click" Content="Товары" Grid.Column="2" HorizontalAlignment="Left" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnClients" Click="btnClients_Click" Content="Клиенты" Grid.Column="2" HorizontalAlignment="Left" Margin="10,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnProviders" Click="btnProviders_Click" Content="Поставщики" Grid.Column="2" HorizontalAlignment="Left" Margin="10,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnInvoices" Click="btnInvoices_Click" Content="Товарные накладные" Grid.Column="2" HorizontalAlignment="Left" Margin="10,238,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Cursor="Hand"/>
+        <Button x:Name="btnCat" Click="btnCat_Click" Content="Категории товара" HorizontalAlignment="Right" Margin="0,10,10,0" Grid.Row="1" VerticalAlignment="Top" Width="217" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
+        <Button x:Name="btnPayType" Click="btnPayType_Click" Content="Способы оплаты" HorizontalAlignment="Right" Margin="0,48,10,0" Grid.Row="1" VerticalAlignment="Top" Width="216" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
+        <Button x:Name="btnOrders" Click="btnOrders_Click" Content="Заказы" HorizontalAlignment="Right" Margin="0,86,10,0" Grid.Row="1" VerticalAlignment="Top" Width="216" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
+        <Button x:Name="btnSales" Click="btnSales_Click" Content="Продажи" HorizontalAlignment="Right" Margin="0,238,10,0" Grid.Row="1" VerticalAlignment="Top" Width="216" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand"/>
+        <Button x:Name="btnReports" Click="btnReports_Click" Content="Отчеты" Margin="0,124,11,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand" HorizontalAlignment="Right" Width="217"/>
+        <Button x:Name="btnBuyGoods" Click="btnBuyGoods_Click" Content="Прибытие товаров" Margin="0,162,10,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand" HorizontalAlignment="Right" Width="216"/>
+        <Button x:Name="btnSaleGoods" Click="btnSaleGoods_Click" Content="Продажа товаров" Margin="0,200,10,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="1" Cursor="Hand" HorizontalAlignment="Right" Width="216"/>
+        <Button x:Name="btnCatForGds" Click="btnCatForGds_Click" Content="Категории для товаров" Margin="10,276,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" FontWeight="Bold" BorderBrush="#FFFF9000" Background="#FFFF9000" Foreground="#FF090057" Height="33" Grid.Column="2" Cursor="Hand" HorizontalAlignment="Left" Width="217"/>
+        
+        <Label x:Name="labelSurname" Content="Бурбах" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="100" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="32" Grid.Column="1"/>
+        <Label x:Name="labelNameDadNm" Content="Владимир Витальевич" Margin="10,78,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="32" Grid.Column="1" HorizontalAlignment="Left" Width="213"/>
+        <Label x:Name="labelPos" Content="Генеральный директор" Margin="10,110,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="32" Grid.Column="1" HorizontalAlignment="Left" Width="213"/>
+        <Label x:Name="labelAccCat" Content="5" Margin="10,142,0,0" VerticalAlignment="Top" Foreground="#FC090057" FontFamily="Verdana" FontSize="16" Height="27" Grid.Column="1" HorizontalAlignment="Left" Width="171"/>
+
+        <Image Source="smaller_logo.png" Margin="0,43,46,0" Grid.Column="2" Height="132" VerticalAlignment="Top" HorizontalAlignment="Right" Width="139" />
+
     </Grid>
 </Window>
