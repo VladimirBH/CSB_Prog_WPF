@@ -21,9 +21,10 @@ namespace CSB_program
         private void report_total_amount_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "CSB_INCDataSet.show_sum_sales". При необходимости она может быть перемещена или удалена.
-            this.reportViewer1.RefreshReport();
+            this.show_sum_salesTableAdapter.Fill(this.cSB_INCDataSet.show_sum_sales, Convert.ToDateTime(dateTimePicker_from.Value), Convert.ToDateTime(dateTimePicker_to.Value));
             this.button_exit.Location = new Point(this.Width - this.button_exit.Width - 40, 35);
             this.button_submit.Location = new Point(this.Width - this.button_exit.Width - this.button_submit.Width - 40 - 20, 35);
+            this.reportViewer2.RefreshReport();
         }
 
         private void button_exit_Click(object sender, EventArgs e)
@@ -34,7 +35,8 @@ namespace CSB_program
         private void button_submit_Click(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "CSB_INCDataSet.show_sum_sales". При необходимости она может быть перемещена или удалена.
-            this.reportViewer1.RefreshReport();
+            this.show_sum_salesTableAdapter.Fill(this.cSB_INCDataSet.show_sum_sales, Convert.ToDateTime(dateTimePicker_from.Value), Convert.ToDateTime(dateTimePicker_to.Value));
+            this.reportViewer2.RefreshReport();
         }
 
         private void report_total_amount_Resize(object sender, EventArgs e)

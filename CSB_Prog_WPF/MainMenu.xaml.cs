@@ -64,7 +64,7 @@ namespace CSB_program
             Categories
             Goods
             Providers
-            Reports - отчеты
+            SearchProduct - поиск товаров
             Invoices
 
             ---------------------------------------
@@ -79,11 +79,11 @@ namespace CSB_program
                 btnSales.Visibility = Visibility.Hidden;
                 btnSaleReceipt.Visibility = Visibility.Hidden;
                 btnCatForGds.Visibility = Visibility.Hidden;
+                btnReports.Visibility = Visibility.Hidden;
                 //Grid.Column = 1
                 btnOrders.Margin = new Thickness(0, 10, 10, 0);
-                btnReports.Margin = new Thickness(0, 48, 10, 0);
-                btnBuyGoods.Margin = new Thickness(0, 86, 10, 0);
-                btnCat.Margin = new Thickness(0, 124, 10, 0);
+                btnBuyGoods.Margin = new Thickness(0, 48, 10, 0);
+                btnCat.Margin = new Thickness(0, 86, 10, 0);
                 //Grid.Column = 2
                 btnGoods.Margin = new Thickness(10, 10, 0, 0);
                 btnProviders.Margin = new Thickness(10, 48, 0, 0);
@@ -99,7 +99,7 @@ namespace CSB_program
             PaymentType
             SaleReceipt
             Clients
-            Reports - отчеты
+            SearchProduct - поиск товаров
             ---------------------------------------
             */
             else if (accCat == 2)
@@ -112,11 +112,11 @@ namespace CSB_program
                 btnPos.Visibility = Visibility.Hidden;
                 btnSales.Visibility = Visibility.Hidden;
                 btnCatForGds.Visibility = Visibility.Hidden;
+                btnReports.Visibility = Visibility.Hidden;
                 //Grid.Column = 1
                 btnCat.Margin = new Thickness(0, 10, 10, 0);
-                btnReports.Margin = new Thickness(0, 48, 10, 0);
-                btnSaleGoods.Margin = new Thickness(0, 86, 10, 0);
-                btnPayType.Margin = new Thickness(0, 124, 10, 0);
+                btnSaleGoods.Margin = new Thickness(0, 48, 10, 0);
+                btnPayType.Margin = new Thickness(0, 86, 10, 0);
                 //Grid.Column = 2
                 btnSaleReceipt.Margin = new Thickness(10, 10, 0, 0);
                 btnGoods.Margin = new Thickness(10, 48, 0, 0);
@@ -227,10 +227,11 @@ namespace CSB_program
             openViewTable("sales");
         }
 
-        //Нажатие на кнопку Отчеты
+        //Нажатие на кнопку Отчет по продажам
         private void btnReports_Click(object sender, RoutedEventArgs e)
         {
-
+            report_total_amount totalAmount = new report_total_amount();
+            totalAmount.ShowDialog();
         }
 
         //Нажатие на кнопку Покупка товаров
@@ -245,6 +246,13 @@ namespace CSB_program
         {
             forProduct product = new forProduct(Convert.ToInt32(idUser));
             product.Show();
+        }
+
+        //Нажатие на кнопку Поиск товаров
+        private void btnSearchProduct_Click(object sender, RoutedEventArgs e)
+        {
+            report searchProduct = new report();
+            searchProduct.ShowDialog();
         }
     }
 }

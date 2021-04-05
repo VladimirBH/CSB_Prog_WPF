@@ -32,11 +32,19 @@ namespace CSB_program
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report_sale_receipt));
-            this.button_exit = new System.Windows.Forms.Button();
             this.show_sale_receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button_exit = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.cSB_INCDataSet = new CSB_Prog_WPF.CSB_INCDataSet();
+            this.show_sale_receiptTableAdapter = new CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_sale_receiptTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.show_sale_receiptBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // show_sale_receiptBindingSource
+            // 
+            this.show_sale_receiptBindingSource.DataMember = "show_sale_receipt";
+            this.show_sale_receiptBindingSource.DataSource = this.cSB_INCDataSet;
             // 
             // button_exit
             // 
@@ -60,12 +68,21 @@ namespace CSB_program
             reportDataSource1.Name = "sale_receipt";
             reportDataSource1.Value = this.show_sale_receiptBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_program.sale_receipt.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_Prog_WPF.saleReceiptReportView.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(33, 83);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1006, 512);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // cSB_INCDataSet
+            // 
+            this.cSB_INCDataSet.DataSetName = "CSB_INCDataSet";
+            this.cSB_INCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // show_sale_receiptTableAdapter
+            // 
+            this.show_sale_receiptTableAdapter.ClearBeforeFill = true;
             // 
             // report_sale_receipt
             // 
@@ -78,11 +95,16 @@ namespace CSB_program
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximumSize = new System.Drawing.Size(1088, 662);
+            this.MinimumSize = new System.Drawing.Size(1088, 662);
             this.Name = "report_sale_receipt";
             this.Padding = new System.Windows.Forms.Padding(33, 83, 33, 28);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Формирование товарного чека";
             this.Load += new System.EventHandler(this.report_sale_receipt_Load);
             this.Resize += new System.EventHandler(this.report_sale_receipt_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.show_sale_receiptBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,5 +113,7 @@ namespace CSB_program
         private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.BindingSource show_sale_receiptBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private CSB_Prog_WPF.CSB_INCDataSet cSB_INCDataSet;
+        private CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_sale_receiptTableAdapter show_sale_receiptTableAdapter;
     }
 }

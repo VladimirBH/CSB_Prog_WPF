@@ -48,6 +48,7 @@ namespace CSB_program
                 tableView.ItemsSource = dt.DefaultView;
                // tableView.DataContext = dt;
             }
+            btnFormInvoice.Visibility = Visibility.Hidden;
             /*
             ---------------------------------------------------------
             Суть уровней доступа:
@@ -167,8 +168,8 @@ namespace CSB_program
                     tableView.Columns[3].Header = "Наименование организации";
 
                     break;
-                case "purchase_invoce":
-
+                case "purchase_invoice":
+                    btnFormInvoice.Visibility = Visibility.Visible;
                     if (accCat < 5)
                     {
                         tableView.ContextMenu.Visibility = Visibility.Hidden;
@@ -359,9 +360,25 @@ namespace CSB_program
             }
         }
 
+        //Нажатие на кнопку обновить записи
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             tableView.Items.Refresh();
+        }
+        //Нажатие на кнопку сформировать накладную
+        private void btnFormInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView dataRowView = (DataRowView)tableView.SelectedItem;
+            if (dataRowView == null)
+            {
+                MessageBox.Show("Выберите запись!", "Внимание!!!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else 
+            {
+                int idRec = Convert.ToInt32(dataRowView["id"]);
+                report_invoice formInvoice = new report_invoice(idRec);
+                formInvoice.ShowDialog();
+            }
         }
     }
 }

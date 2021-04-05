@@ -31,33 +31,31 @@ namespace CSB_program
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report_total_amount));
             this.show_sum_salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.cSB_INCDataSet = new CSB_Prog_WPF.CSB_INCDataSet();
             this.dateTimePicker_from = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_to = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button_submit = new System.Windows.Forms.Button();
             this.button_exit = new System.Windows.Forms.Button();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.show_sum_salesTableAdapter = new CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_sum_salesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.show_sum_salesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // show_sum_salesBindingSource
             // 
             this.show_sum_salesBindingSource.DataMember = "show_sum_sales";
+            this.show_sum_salesBindingSource.DataSource = this.cSB_INCDataSet;
             // 
-            // reportViewer1
+            // cSB_INCDataSet
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "total_sum";
-            reportDataSource1.Value = this.show_sum_salesBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_program.amount_sales.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(33, 83);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(957, 485);
-            this.reportViewer1.TabIndex = 0;
+            this.cSB_INCDataSet.DataSetName = "CSB_INCDataSet";
+            this.cSB_INCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dateTimePicker_from
             // 
@@ -123,11 +121,28 @@ namespace CSB_program
             this.button_exit.UseVisualStyleBackColor = false;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
+            // reportViewer2
+            // 
+            reportDataSource2.Name = "total_amount";
+            reportDataSource2.Value = this.show_sum_salesBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "CSB_Prog_WPF.amount_sales.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(13, 74);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(997, 511);
+            this.reportViewer2.TabIndex = 27;
+            // 
+            // show_sum_salesTableAdapter
+            // 
+            this.show_sum_salesTableAdapter.ClearBeforeFill = true;
+            // 
             // report_total_amount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 596);
+            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.button_submit);
             this.Controls.Add(this.button_exit);
             this.Controls.Add(this.label2);
@@ -138,11 +153,16 @@ namespace CSB_program
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(0)))), ((int)(((byte)(87)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.MaximumSize = new System.Drawing.Size(1039, 635);
+            this.MinimumSize = new System.Drawing.Size(1039, 635);
             this.Name = "report_total_amount";
             this.Padding = new System.Windows.Forms.Padding(33, 83, 33, 28);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Отчет по продажам за период";
             this.Load += new System.EventHandler(this.report_total_amount_Load);
             this.Resize += new System.EventHandler(this.report_total_amount_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.show_sum_salesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +170,6 @@ namespace CSB_program
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource show_sum_salesBindingSource;
         private System.Windows.Forms.DateTimePicker dateTimePicker_from;
         private System.Windows.Forms.DateTimePicker dateTimePicker_to;
@@ -158,5 +177,8 @@ namespace CSB_program
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_submit;
         private System.Windows.Forms.Button button_exit;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private CSB_Prog_WPF.CSB_INCDataSet cSB_INCDataSet;
+        private CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_sum_salesTableAdapter show_sum_salesTableAdapter;
     }
 }

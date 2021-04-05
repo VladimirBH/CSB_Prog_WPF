@@ -160,9 +160,6 @@
     <Compile Include="saleGoods.xaml.cs">
       <DependentUpon>saleGoods.xaml</DependentUpon>
     </Compile>
-    <Compile Include="selectReport.xaml.cs">
-      <DependentUpon>selectReport.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="viewTables.xaml.cs">
       <DependentUpon>viewTables.xaml</DependentUpon>
@@ -205,10 +202,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="selectReport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="viewTables.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -234,6 +227,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="amount_sales.rdlc" />
     <EmbeddedResource Include="goodsReportView.rdlc" />
     <EmbeddedResource Include="productReceiptReport.resx">
       <DependentUpon>productReceiptReport.cs</DependentUpon>

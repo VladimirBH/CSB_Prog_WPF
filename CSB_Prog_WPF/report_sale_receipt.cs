@@ -22,9 +22,10 @@ namespace CSB_program
 
         private void report_sale_receipt_Load(object sender, EventArgs e)
         {
+            cSB_INCDataSet.EnforceConstraints = false;
+            this.show_sale_receiptTableAdapter.Fill(this.cSB_INCDataSet.show_sale_receipt, id);
             this.button_exit.Location = new Point(this.Width - this.button_exit.Width - 40, 35);
             this.reportViewer1.RefreshReport();
-            this.reportViewer2.RefreshReport();
         }
 
         private void button_exit_Click(object sender, EventArgs e)
