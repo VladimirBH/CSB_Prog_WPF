@@ -26,8 +26,8 @@ namespace CSB_Prog_WPF.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CSB_INC;Integrated Security=Tr" +
-            "ue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PCVLADI\\VLADIPCDB;Initial Catalog=CSB_INC;Persist Security Info=True;" +
+            "User ID=sa;Password=sys")]
         public string consting {
             get {
                 return ((string)(this["consting"]));

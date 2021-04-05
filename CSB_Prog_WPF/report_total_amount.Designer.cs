@@ -32,8 +32,8 @@ namespace CSB_program
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report_total_amount));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.show_sum_salesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dateTimePicker_from = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_to = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +42,10 @@ namespace CSB_program
             this.button_exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.show_sum_salesBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // show_sum_salesBindingSource
+            // 
+            this.show_sum_salesBindingSource.DataMember = "show_sum_sales";
             // 
             // reportViewer1
             // 
@@ -52,19 +56,8 @@ namespace CSB_program
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_program.amount_sales.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(33, 83);
             this.reportViewer1.Name = "reportViewer1";
-           // this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(957, 485);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // CSB_INCDataSet
-            // 
-            // 
-            // show_sum_salesBindingSource
-            // 
-            this.show_sum_salesBindingSource.DataMember = "show_sum_sales";
-            // 
-            // show_sum_salesTableAdapter
-            // 
             // 
             // dateTimePicker_from
             // 
@@ -141,7 +134,6 @@ namespace CSB_program
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker_to);
             this.Controls.Add(this.dateTimePicker_from);
-            //this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Verdana", 12F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(0)))), ((int)(((byte)(87)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

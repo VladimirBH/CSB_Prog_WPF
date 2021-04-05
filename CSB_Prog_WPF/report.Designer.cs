@@ -32,16 +32,24 @@ namespace CSB_program
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report));
+            this.show_tovarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.showtovarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.button_exit = new System.Windows.Forms.Button();
-            this.show_tovarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox_filter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_submit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.showtovarBindingSource)).BeginInit();
+            this.cSB_INCDataSet = new CSB_Prog_WPF.CSB_INCDataSet();
+            this.show_tovarTableAdapter = new CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_tovarTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.show_tovarBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtovarBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // show_tovarBindingSource
+            // 
+            this.show_tovarBindingSource.DataMember = "show_tovar";
+            this.show_tovarBindingSource.DataSource = this.cSB_INCDataSet;
             // 
             // reportViewer2
             // 
@@ -55,7 +63,6 @@ namespace CSB_program
             this.reportViewer2.Location = new System.Drawing.Point(33, 83);
             this.reportViewer2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.reportViewer2.Name = "reportViewer2";
-           // this.reportViewer2.ServerReport.BearerToken = null;
             this.reportViewer2.Size = new System.Drawing.Size(818, 493);
             this.reportViewer2.TabIndex = 0;
             // 
@@ -74,16 +81,6 @@ namespace CSB_program
             this.button_exit.Text = "Закрыть";
             this.button_exit.UseVisualStyleBackColor = false;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
-            // 
-            // show_tovarBindingSource
-            // 
-            this.show_tovarBindingSource.DataMember = "show_tovar";
-            // 
-            // CSB_INCDataSet
-            // 
-            // 
-            // show_tovarTableAdapter
-            // 
             // 
             // textBox_filter
             // 
@@ -117,6 +114,15 @@ namespace CSB_program
             this.button_submit.UseVisualStyleBackColor = false;
             this.button_submit.Click += new System.EventHandler(this.button_submit_Click);
             // 
+            // cSB_INCDataSet
+            // 
+            this.cSB_INCDataSet.DataSetName = "CSB_INCDataSet";
+            this.cSB_INCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // show_tovarTableAdapter
+            // 
+            this.show_tovarTableAdapter.ClearBeforeFill = true;
+            // 
             // report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -135,8 +141,9 @@ namespace CSB_program
             this.Padding = new System.Windows.Forms.Padding(33, 83, 33, 28);
             this.Load += new System.EventHandler(this.report_Load);
             this.Resize += new System.EventHandler(this.report_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.showtovarBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.show_tovarBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtovarBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +158,7 @@ namespace CSB_program
         private System.Windows.Forms.TextBox textBox_filter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_submit;
+        private CSB_Prog_WPF.CSB_INCDataSet cSB_INCDataSet;
+        private CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_tovarTableAdapter show_tovarTableAdapter;
     }
 }

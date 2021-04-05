@@ -24,6 +24,7 @@ namespace CSB_program
         {
             this.button_exit.Location = new Point(this.Width - this.button_exit.Width - 40, 35);
             this.reportViewer1.RefreshReport();
+            this.reportViewer2.RefreshReport();
         }
 
         private void button_exit_Click(object sender, EventArgs e)

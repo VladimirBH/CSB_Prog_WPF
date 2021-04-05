@@ -51,7 +51,7 @@
         <Button x:Name="btnDelete" Click="btnDelete_Click" Content="Delete" HorizontalAlignment="Left" Margin="90,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="67" FontFamily="Verdana" BorderThickness="0,0,0,0.5" Foreground="#FFFF4242" Background="WhiteSmoke" FontSize="18" Grid.RowSpan="2"/>
         <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="157,6,0,0" VerticalAlignment="Top" Width="67" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FF4BC130" Grid.Row="1" FontSize="18" Grid.RowSpan="2"/>
         <Button x:Name="btnEdit" Click="btnEdit_Click" Content="Edit" HorizontalAlignment="Left" Margin="224,6,0,0" VerticalAlignment="Top" Width="66" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FFFFC500" BorderBrush="{x:Null}" Grid.Row="1" FontSize="18" Grid.RowSpan="2"/>
-        <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Ок" HorizontalAlignment="Center" Margin="867,23,10,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" FontWeight="Bold" Cursor="Hand"/>
+        <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Обновить" HorizontalAlignment="Center" Margin="867,23,10,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" FontWeight="Bold" Cursor="Hand"/>
 
     </Grid>
 </Window>

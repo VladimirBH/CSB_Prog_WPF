@@ -32,24 +32,11 @@ namespace CSB_program
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report_invoice));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.button_exit = new System.Windows.Forms.Button();
             this.show_purchase_invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.show_purchase_invoiceBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "purchase_invoice";
-            reportDataSource1.Value = this.show_purchase_invoiceBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_program.purchase_invoice.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(33, 83);
-            this.reportViewer1.Name = "reportViewer1";
-           // this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(720, 404);
-            this.reportViewer1.TabIndex = 0;
             // 
             // button_exit
             // 
@@ -67,14 +54,18 @@ namespace CSB_program
             this.button_exit.UseVisualStyleBackColor = false;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
-            // CSB_INCDataSet
+            // reportViewer1
             // 
-            // 
-            // show_purchase_invoiceBindingSource
-            // 
-            // 
-            // show_purchase_invoiceTableAdapter
-            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "purchase_invoice";
+            reportDataSource1.Value = this.show_purchase_invoiceBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_program.purchase_invoice.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(33, 83);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(720, 404);
+            this.reportViewer1.TabIndex = 0;
             // 
             // report_invoice
             // 
@@ -96,9 +87,8 @@ namespace CSB_program
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.BindingSource show_purchase_invoiceBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

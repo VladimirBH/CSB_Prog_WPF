@@ -32,29 +32,11 @@ namespace CSB_program
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report_sale_receipt));
-
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.button_exit = new System.Windows.Forms.Button();
             this.show_sale_receiptBindingSource = new System.Windows.Forms.BindingSource(this.components);
-
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.show_sale_receiptBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CSB_INCDataSet
-            // 
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "sale_receipt";
-            reportDataSource1.Value = this.show_sale_receiptBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_program.sale_receipt.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(33, 83);
-            this.reportViewer1.Name = "reportViewer1";
-           // this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1006, 512);
-            this.reportViewer1.TabIndex = 0;
             // 
             // button_exit
             // 
@@ -72,11 +54,18 @@ namespace CSB_program
             this.button_exit.UseVisualStyleBackColor = false;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
-            // show_sale_receiptBindingSource
+            // reportViewer1
             // 
-            // 
-            // show_sale_receiptTableAdapter
-            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "sale_receipt";
+            reportDataSource1.Value = this.show_sale_receiptBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "CSB_program.sale_receipt.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(33, 83);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1006, 512);
+            this.reportViewer1.TabIndex = 0;
             // 
             // report_sale_receipt
             // 
@@ -99,9 +88,8 @@ namespace CSB_program
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.BindingSource show_sale_receiptBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }
