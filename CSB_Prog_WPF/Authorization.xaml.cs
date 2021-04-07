@@ -58,7 +58,16 @@ namespace CSB_program
                                 idUser = rdr.GetValue(0).ToString();
                                 hashPassFromDB = rdr.GetValue(1).ToString();
                             }
-                            bool isValidPassword = BCrypt.Net.BCrypt.Verify(passboxPass.Password, hashPassFromDB);
+                            bool isValidPassword = false;
+                            try
+                            {
+                                isValidPassword = BCrypt.Net.BCrypt.Verify(passboxPass.Password, hashPassFromDB);
+                            }
+                            catch (ArgumentException ex) 
+                            {
+                                
+                            }
+                            
                             if (isValidPassword)
                             {
                                 enter = true;

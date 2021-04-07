@@ -24,8 +24,8 @@
     <Shape ID="DesignTable:show_sale_receipt" ZOrder="16" X="2630" Y="70" Height="267" Width="247" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
     <Shape ID="DesignTable:show_sum_sales" ZOrder="15" X="2947" Y="62" Height="172" Width="237" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:show_tovar_func" ZOrder="2" X="3624" Y="62" Height="172" Width="241" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="3254" Y="70" Height="257" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="16" />
     <Shape ID="DesignTable:statisticCli" ZOrder="1" X="3935" Y="62" Height="115" Width="204" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="3254" Y="70" Height="257" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="16" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK__employees__id_position" ZOrder="14" LineWidth="11">

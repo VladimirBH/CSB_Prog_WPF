@@ -260,5 +260,17 @@ namespace CSB_Prog_WPF
         {
             this.Close();
         }
+        //Ввод номера телефона
+        private void textBoxTelNum_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBoxTelNum.Text == "")
+            {
+                e.Handled = !(e.Key == Key.Add);
+            }
+            else
+            {
+                e.Handled = !(e.Key >= Key.D0 && e.Key <= Key.D9);
+            }
+        }
     }
 }

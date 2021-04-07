@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -158,6 +159,18 @@ namespace CSB_Prog_WPF
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        //Ввод номера телефона
+        private void textBoxTelNum_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBoxTelNum.Text == "")
+            {
+                e.Handled = !(e.Key == Key.Add);
+            }
+            else
+            {
+                e.Handled = !(e.Key >= Key.D0 && e.Key <=Key.D9);
+            }
         }
     }
 }

@@ -3954,7 +3954,7 @@ namespace CSB_Prog_WPF {
             
             private global::System.Data.DataColumn columnsalary;
             
-            private global::System.Data.DataColumn columnclass;
+            private global::System.Data.DataColumn columncategory;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4023,9 +4023,9 @@ namespace CSB_Prog_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn classColumn {
+            public global::System.Data.DataColumn categoryColumn {
                 get {
-                    return this.columnclass;
+                    return this.columncategory;
                 }
             }
             
@@ -4066,14 +4066,14 @@ namespace CSB_Prog_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public positionsRow AddpositionsRow(int id, string job_title, short access_category, decimal salary, byte _class) {
+            public positionsRow AddpositionsRow(int id, string job_title, short access_category, decimal salary, byte category) {
                 positionsRow rowpositionsRow = ((positionsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         job_title,
                         access_category,
                         salary,
-                        _class};
+                        category};
                 rowpositionsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpositionsRow);
                 return rowpositionsRow;
@@ -4107,7 +4107,7 @@ namespace CSB_Prog_WPF {
                 this.columnjob_title = base.Columns["job_title"];
                 this.columnaccess_category = base.Columns["access_category"];
                 this.columnsalary = base.Columns["salary"];
-                this.columnclass = base.Columns["class"];
+                this.columncategory = base.Columns["category"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4121,11 +4121,8 @@ namespace CSB_Prog_WPF {
                 base.Columns.Add(this.columnaccess_category);
                 this.columnsalary = new global::System.Data.DataColumn("salary", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsalary);
-                this.columnclass = new global::System.Data.DataColumn("class", typeof(byte), null, global::System.Data.MappingType.Element);
-                this.columnclass.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "classColumn");
-                this.columnclass.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnclass");
-                this.columnclass.ExtendedProperties.Add("Generator_UserColumnName", "class");
-                base.Columns.Add(this.columnclass);
+                this.columncategory = new global::System.Data.DataColumn("category", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncategory);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AllowDBNull = false;
@@ -8134,30 +8131,30 @@ namespace CSB_Prog_WPF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public byte _class {
+            public byte category {
                 get {
                     try {
-                        return ((byte)(this[this.tablepositions.classColumn]));
+                        return ((byte)(this[this.tablepositions.categoryColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'class\' в таблице \'positions\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'category\' в таблице \'positions\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablepositions.classColumn] = value;
+                    this[this.tablepositions.categoryColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is_classNull() {
-                return this.IsNull(this.tablepositions.classColumn);
+            public bool IscategoryNull() {
+                return this.IsNull(this.tablepositions.categoryColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set_classNull() {
-                this[this.tablepositions.classColumn] = global::System.Convert.DBNull;
+            public void SetcategoryNull() {
+                this[this.tablepositions.categoryColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13026,45 +13023,45 @@ SELECT id, id_invoice, name_gds, count_gds, cost_gds_wo_vat, vat FROM orders WHE
             tableMapping.ColumnMappings.Add("job_title", "job_title");
             tableMapping.ColumnMappings.Add("access_category", "access_category");
             tableMapping.ColumnMappings.Add("salary", "salary");
-            tableMapping.ColumnMappings.Add("class", "class");
+            tableMapping.ColumnMappings.Add("category", "category");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[positions] WHERE (([id] = @Original_id) AND ([job_title] = @Original_job_title) AND ([access_category] = @Original_access_category) AND ([salary] = @Original_salary) AND ((@IsNull_class = 1 AND [class] IS NULL) OR ([class] = @Original_class)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [positions] WHERE (([id] = @Original_id) AND ([job_title] = @Original_job_title) AND ([access_category] = @Original_access_category) AND ([salary] = @Original_salary) AND ((@IsNull_category = 1 AND [category] IS NULL) OR ([category] = @Original_category)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_job_title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "job_title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_access_category", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "access_category", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_salary", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "salary", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "class", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_class", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "class", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_category", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[positions] ([id], [job_title], [access_category], [salary], [c" +
-                "lass]) VALUES (@id, @job_title, @access_category, @salary, @class);\r\nSELECT id, " +
-                "job_title, access_category, salary, class FROM positions WHERE (id = @id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [positions] ([id], [job_title], [access_category], [salary], [categor" +
+                "y]) VALUES (@id, @job_title, @access_category, @salary, @category);\r\nSELECT id, " +
+                "job_title, access_category, salary, category FROM positions WHERE (id = @id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@job_title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "job_title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@access_category", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "access_category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salary", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "salary", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@class", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "class", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@category", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[positions] SET [id] = @id, [job_title] = @job_title, [access_category] = @access_category, [salary] = @salary, [class] = @class WHERE (([id] = @Original_id) AND ([job_title] = @Original_job_title) AND ([access_category] = @Original_access_category) AND ([salary] = @Original_salary) AND ((@IsNull_class = 1 AND [class] IS NULL) OR ([class] = @Original_class)));
-SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [positions] SET [id] = @id, [job_title] = @job_title, [access_category] = @access_category, [salary] = @salary, [category] = @category WHERE (([id] = @Original_id) AND ([job_title] = @Original_job_title) AND ([access_category] = @Original_access_category) AND ([salary] = @Original_salary) AND ((@IsNull_category = 1 AND [category] IS NULL) OR ([category] = @Original_category)));
+SELECT id, job_title, access_category, salary, category FROM positions WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@job_title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "job_title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@access_category", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "access_category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@salary", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "salary", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@class", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "class", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@category", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_job_title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "job_title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_access_category", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "access_category", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_salary", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "salary", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "class", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_class", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "class", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_category", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13080,7 +13077,7 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, job_title, access_category, salary, class FROM dbo.positions";
+            this._commandCollection[0].CommandText = "SELECT id, job_title, access_category, salary, category FROM positions";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13141,7 +13138,7 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_job_title, short Original_access_category, decimal Original_salary, global::System.Nullable<byte> Original_class) {
+        public virtual int Delete(int Original_id, string Original_job_title, short Original_access_category, decimal Original_salary, global::System.Nullable<byte> Original_category) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_job_title == null)) {
                 throw new global::System.ArgumentNullException("Original_job_title");
@@ -13151,9 +13148,9 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
             }
             this.Adapter.DeleteCommand.Parameters[2].Value = ((short)(Original_access_category));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_salary));
-            if ((Original_class.HasValue == true)) {
+            if ((Original_category.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((byte)(Original_class.Value));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((byte)(Original_category.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
@@ -13179,7 +13176,7 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int id, string job_title, short access_category, decimal salary, global::System.Nullable<byte> _class) {
+        public virtual int Insert(int id, string job_title, short access_category, decimal salary, global::System.Nullable<byte> category) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id));
             if ((job_title == null)) {
                 throw new global::System.ArgumentNullException("job_title");
@@ -13189,8 +13186,8 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((short)(access_category));
             this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(salary));
-            if ((_class.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((byte)(_class.Value));
+            if ((category.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((byte)(category.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -13215,7 +13212,7 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int id, string job_title, short access_category, decimal salary, global::System.Nullable<byte> _class, int Original_id, string Original_job_title, short Original_access_category, decimal Original_salary, global::System.Nullable<byte> Original_class) {
+        public virtual int Update(int id, string job_title, short access_category, decimal salary, global::System.Nullable<byte> category, int Original_id, string Original_job_title, short Original_access_category, decimal Original_salary, global::System.Nullable<byte> Original_category) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id));
             if ((job_title == null)) {
                 throw new global::System.ArgumentNullException("job_title");
@@ -13225,8 +13222,8 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((short)(access_category));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(salary));
-            if ((_class.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((byte)(_class.Value));
+            if ((category.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((byte)(category.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -13240,9 +13237,9 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
             }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((short)(Original_access_category));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Original_salary));
-            if ((Original_class.HasValue == true)) {
+            if ((Original_category.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((byte)(Original_class.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((byte)(Original_category.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
@@ -13268,8 +13265,8 @@ SELECT id, job_title, access_category, salary, class FROM positions WHERE (id = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string job_title, short access_category, decimal salary, global::System.Nullable<byte> _class, int Original_id, string Original_job_title, short Original_access_category, decimal Original_salary, global::System.Nullable<byte> Original_class) {
-            return this.Update(Original_id, job_title, access_category, salary, _class, Original_id, Original_job_title, Original_access_category, Original_salary, Original_class);
+        public virtual int Update(string job_title, short access_category, decimal salary, global::System.Nullable<byte> category, int Original_id, string Original_job_title, short Original_access_category, decimal Original_salary, global::System.Nullable<byte> Original_category) {
+            return this.Update(Original_id, job_title, access_category, salary, category, Original_id, Original_job_title, Original_access_category, Original_salary, Original_category);
         }
     }
     

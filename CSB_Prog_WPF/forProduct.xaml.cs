@@ -215,5 +215,46 @@ namespace CSB_Prog_WPF
                 dataGridProducts.Items.Remove(dataGridProducts.SelectedItem);
             }
         }
+
+        private void textBoxCountGds_KeyDown(object sender, KeyEventArgs e)
+        {
+                e.Handled = !(e.Key >= Key.D0 && e.Key <= Key.D9);
+        }
+
+        private void textBoxCostWithoutVat_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBoxCostWithoutVat.Text == "")
+            {
+                e.Handled = !((e.Key >= Key.D0 && e.Key <= Key.D9));
+            }
+            else
+            {
+                e.Handled = !((e.Key >= Key.D0 && e.Key <= Key.D9) | (e.Key == Key.Decimal && !(textBoxCostWithoutVat.Text.Contains('.'))));
+            }
+        }
+
+        private void textBoxVat_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBoxVat.Text == "")
+            {
+                e.Handled = !((e.Key >= Key.D0 && e.Key <= Key.D9));
+            }
+            else
+            {
+                e.Handled = !((e.Key >= Key.D0 && e.Key <= Key.D9) | (e.Key == Key.Decimal && !(textBoxVat.Text.Contains('.'))));
+            }
+        }
+
+        private void textBoxRetailCost_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBoxRetailCost.Text == "")
+            {
+                e.Handled = !((e.Key >= Key.D0 && e.Key <= Key.D9));
+            }
+            else
+            {
+                e.Handled = !((e.Key >= Key.D0 && e.Key <= Key.D9) | (e.Key == Key.Decimal && !(textBoxRetailCost.Text.Contains('.'))));
+            }
+        }
     }
 }

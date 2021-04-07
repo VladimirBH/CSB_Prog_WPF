@@ -220,5 +220,10 @@ namespace CSB_Prog_WPF
                 }
             }
         }
+
+        private void textBoxProductNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = !(e.Key >= Key.D0 && e.Key <= Key.D9);
+        }
     }
 }
