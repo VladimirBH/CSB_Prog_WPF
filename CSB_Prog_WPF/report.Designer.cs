@@ -7,7 +7,6 @@ namespace CSB_program
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -32,27 +31,17 @@ namespace CSB_program
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(report));
-            this.show_tovarBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cSB_INCDataSet = new CSB_Prog_WPF.CSB_INCDataSet();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.button_exit = new System.Windows.Forms.Button();
             this.textBox_filter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_submit = new System.Windows.Forms.Button();
-            this.show_tovarTableAdapter = new CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_tovarTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.show_tovarBindingSource)).BeginInit();
+            this.cSB_INCDataSet = new CSB_Prog_WPF.CSB_INCDataSet();
+            this.show_tovar_funcTableAdapter = new CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_tovar_funcTableAdapter();
+            this.show_tovar_funcBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.show_tovar_funcBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // show_tovarBindingSource
-            // 
-            this.show_tovarBindingSource.DataMember = "show_tovar";
-            this.show_tovarBindingSource.DataSource = this.cSB_INCDataSet;
-            // 
-            // cSB_INCDataSet
-            // 
-            this.cSB_INCDataSet.DataSetName = "CSB_INCDataSet";
-            this.cSB_INCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer2
             // 
@@ -60,7 +49,7 @@ namespace CSB_program
             this.reportViewer2.DocumentMapWidth = 1;
             this.reportViewer2.Font = new System.Drawing.Font("Verdana", 12F);
             reportDataSource1.Name = "price_list";
-            reportDataSource1.Value = this.show_tovarBindingSource;
+            reportDataSource1.Value = this.show_tovar_funcBindingSource;
             this.reportViewer2.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "CSB_Prog_WPF.goodsReportView.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(33, 83);
@@ -118,9 +107,19 @@ namespace CSB_program
             this.button_submit.UseVisualStyleBackColor = false;
             this.button_submit.Click += new System.EventHandler(this.button_submit_Click);
             // 
-            // show_tovarTableAdapter
+            // cSB_INCDataSet
             // 
-            this.show_tovarTableAdapter.ClearBeforeFill = true;
+            this.cSB_INCDataSet.DataSetName = "CSB_INCDataSet";
+            this.cSB_INCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // show_tovar_funcTableAdapter
+            // 
+            this.show_tovar_funcTableAdapter.ClearBeforeFill = true;
+            // 
+            // show_tovar_funcBindingSource
+            // 
+            this.show_tovar_funcBindingSource.DataMember = "show_tovar_func";
+            this.show_tovar_funcBindingSource.DataSource = this.cSB_INCDataSet;
             // 
             // report
             // 
@@ -143,8 +142,8 @@ namespace CSB_program
             this.Text = "Поиск по навзванию товара";
             this.Load += new System.EventHandler(this.report_Load);
             this.Resize += new System.EventHandler(this.report_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.show_tovarBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.show_tovar_funcBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,12 +152,12 @@ namespace CSB_program
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
-        private System.Windows.Forms.BindingSource show_tovarBindingSource;
         private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.TextBox textBox_filter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_submit;
         private CSB_Prog_WPF.CSB_INCDataSet cSB_INCDataSet;
-        private CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_tovarTableAdapter show_tovarTableAdapter;
+        private CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_tovar_funcTableAdapter show_tovar_funcTableAdapter;
+        private System.Windows.Forms.BindingSource show_tovar_funcBindingSource;
     }
 }

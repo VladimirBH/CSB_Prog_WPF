@@ -38,9 +38,9 @@
                   SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="addMenuItem" Header="Add" Click="MenuItemAdd_Click"/>
-                    <MenuItem x:Name="editMenuItem" Header="Edit" Click="MenuItemEdit_Click"/>
-                    <MenuItem x:Name="deleteMenuItem" Header="Delete" Click="MenuItemDelete_Click"/>
+                    <MenuItem x:Name="addMenuItem" Header="Добавить" Click="MenuItemAdd_Click"/>
+                    <MenuItem x:Name="editMenuItem" Header="Изменить" Click="MenuItemEdit_Click"/>
+                    <MenuItem x:Name="deleteMenuItem" Header="Удалить" Click="MenuItemDelete_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
@@ -48,10 +48,10 @@
         <Rectangle Fill="WhiteSmoke" HorizontalAlignment="Left" Height="24" Margin="10,6,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="972" StrokeThickness="0" Grid.RowSpan="2"/>
         <Button x:Name="btnPrev" Click="btnPrev_Click" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="39" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FF6B79D1" FontSize="18" Grid.RowSpan="2"/>
         <Button x:Name="btnNext" Click="btnNext_Click" Content=">>" HorizontalAlignment="Left" Margin="49,6,0,0" VerticalAlignment="Top" Width="41" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FF6B79D1" Grid.Row="1" FontSize="18" Grid.RowSpan="2"/>
-        <Button x:Name="btnDelete" Click="btnDelete_Click" Content="Delete" HorizontalAlignment="Left" Margin="90,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="67" FontFamily="Verdana" BorderThickness="0,0,0,0.5" Foreground="#FFFF4242" Background="WhiteSmoke" FontSize="18" Grid.RowSpan="2"/>
-        <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="157,6,0,0" VerticalAlignment="Top" Width="67" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FF4BC130" Grid.Row="1" FontSize="18" Grid.RowSpan="2"/>
-        <Button x:Name="btnEdit" Click="btnEdit_Click" Content="Edit" HorizontalAlignment="Left" Margin="224,6,0,0" VerticalAlignment="Top" Width="66" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FFFFC500" BorderBrush="{x:Null}" Grid.Row="1" FontSize="18" Grid.RowSpan="2"/>
-        <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Обновить" HorizontalAlignment="Center" Margin="867,23,10,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" FontWeight="Bold" Cursor="Hand"/>
+        <Button x:Name="btnDelete" Click="btnDelete_Click" Content="Удалить" HorizontalAlignment="Left" Margin="90,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82" FontFamily="Verdana" BorderThickness="0,0,0,0.5" Foreground="#FFFF4242" Background="WhiteSmoke" FontSize="18" Grid.RowSpan="2"/>
+        <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Добавить" HorizontalAlignment="Left" Margin="177,6,0,0" VerticalAlignment="Top" Width="112" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FF4BC130" Grid.Row="1" FontSize="18" Grid.RowSpan="2"/>
+        <Button x:Name="btnEdit" Click="btnEdit_Click" Content="Изменить" HorizontalAlignment="Left" Margin="294,6,0,0" VerticalAlignment="Top" Width="120" FontFamily="Verdana" Background="WhiteSmoke" BorderThickness="0,0,0,0.5" Foreground="#FFFFC500" BorderBrush="{x:Null}" Grid.Row="1" FontSize="18" Grid.RowSpan="2"/>
+        <Button x:Name="btnRefresh" Click="btnRefresh_Click" Content="Обновить" HorizontalAlignment="Center" Margin="867,23,10,0" VerticalAlignment="Top" Width="115" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" FontWeight="Bold" Cursor="Hand"/>
         <Button x:Name="btnFormInvoice" Click="btnFormInvoice_Click" Content="Сформировать накладную" HorizontalAlignment="Center" Margin="615,23,142,0" VerticalAlignment="Top" Width="235" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" FontWeight="Bold" Cursor="Hand"/>
 
     </Grid>

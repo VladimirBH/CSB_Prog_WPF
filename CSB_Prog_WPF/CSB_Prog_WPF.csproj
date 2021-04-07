@@ -240,6 +240,7 @@
     <EmbeddedResource Include="report.resx">
       <DependentUpon>report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportStat.rdlc" />
     <EmbeddedResource Include="report_invoice.resx">
       <DependentUpon>report_invoice.cs</DependentUpon>
     </EmbeddedResource>

@@ -187,9 +187,6 @@ namespace CSB_Prog_WPF
                     //Логин
                     cmdSql.Parameters.Add(new SqlParameter("@login", SqlDbType.VarChar));
                     cmdSql.Parameters["@login"].Value = textBoxLogin.Text;
-                    //Пароль
-                    /*cmdSql.Parameters.Add(new SqlParameter("@pass", SqlDbType.VarChar));
-                    cmdSql.Parameters["@pass"].Value = passHash;*/
                     //Наименование должности
                     cmdSql.Parameters.Add(new SqlParameter("@job_tit", SqlDbType.VarChar));
                     cmdSql.Parameters["@job_tit"].Value = comboBoxPos.SelectedValue.ToString();
@@ -208,7 +205,8 @@ namespace CSB_Prog_WPF
                     }
                     using (conSql.conn)
                     {
-                        MessageBox.Show(comboBoxPos.SelectedValue.ToString() +"\t"+ comboBoxClass.SelectedValue.ToString(), "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show(comboBoxPos.SelectedValue.ToString() +"\t"+ comboBoxClass.SelectedValue.ToString(), "Успех",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
                         conSql.conn.Open();
                         if (cmdSql.ExecuteNonQuery() != 0)
                         {

@@ -27,6 +27,7 @@ namespace CSB_program
             this.show_purchase_invoiceTableAdapter.Fill(this.cSB_INCDataSet.show_purchase_invoice, id_inv);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "CSB_INCDataSet.show_sale_receipt". При необходимости она может быть перемещена или удалена.
             this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
 
         private void button_exit_Click(object sender, EventArgs e)

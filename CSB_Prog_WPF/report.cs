@@ -20,7 +20,7 @@ namespace CSB_program
         private void report_Load(object sender, EventArgs e)
         {
             //TODO: данная строка кода позволяет загрузить данные в таблицу "CSB_INCDataSet.show_tovar".При необходимости она может быть перемещена или удалена.
-            this.show_tovarTableAdapter.Fill(this.cSB_INCDataSet.show_tovar, textBox_filter.Text);
+            this.show_tovar_funcTableAdapter.Fill(this.cSB_INCDataSet.show_tovar_func, textBox_filter.Text);
             this.reportViewer2.RefreshReport();
             this.button_exit.Location = new Point(this.Width - this.button_exit.Width - 40, 35);
             this.button_submit.Location = new Point(this.Width - this.button_exit.Width - this.button_submit.Width - 40 - 20, 35);
@@ -39,7 +39,7 @@ namespace CSB_program
 
         private void button_submit_Click(object sender, EventArgs e)
         {
-            this.show_tovarTableAdapter.Fill(this.cSB_INCDataSet.show_tovar, textBox_filter.Text);
+            this.show_tovar_funcTableAdapter.Fill(this.cSB_INCDataSet.show_tovar_func, textBox_filter.Text);
             this.reportViewer2.RefreshReport();
         }
     }

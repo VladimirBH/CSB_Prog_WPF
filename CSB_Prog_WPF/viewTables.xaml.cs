@@ -34,7 +34,7 @@ namespace CSB_program
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void getData() 
         {
             string dataFromTable = @"SELECT * FROM " + tableName + "";
             ConnectionMSSQL conSQL = new ConnectionMSSQL();
@@ -43,11 +43,15 @@ namespace CSB_program
             {
                 MessageBox.Show("Что-то пошло не так", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            else 
+            else
             {
                 tableView.ItemsSource = dt.DefaultView;
-               // tableView.DataContext = dt;
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            getData();
             btnFormInvoice.Visibility = Visibility.Hidden;
             /*
             ---------------------------------------------------------
@@ -222,25 +226,34 @@ namespace CSB_program
             }
         }
 
+        //Метод удаления данных
         private void delete_record(int id) 
         {
             
         }
+        //Метод добавления данных
         private void add_record() 
         {
-            switch (tableName) 
+            DataRowView row = (DataRowView)tableView.Items[tableView.Items.Count-2];
+            switch (tableName)
             {
                 case "employees":
                     forEmployee emp = new forEmployee(0);
                     emp.ShowDialog();
                     break;
                 case "positions":
+                    string addPositions = @"INSERT INTO positions " +
+                        "(job_title, access_category, salary, class) VALUES " +
+                        "('" + row["job_title"] + "', " + row["access_category"] + ", " + row["salary"] + ", " + row["class"] + ")";
+                    addIntoDB(addPositions);
                     break;
                 case "clients":
                     forClient cli = new forClient(0);
                     cli.ShowDialog();
                     break;
                 case "provider":
+                    forProvider provider = new forProvider(0);
+                    provider.ShowDialog();
                     break;
                 case "salesReceipt":
                     break;
@@ -259,7 +272,9 @@ namespace CSB_program
                 case "payment_type":
                     break;
             }
+            getData();
         }
+        //Метод изменения данных
         private void edit_record() 
         {
             DataRowView dataRowView = (DataRowView)tableView.SelectedItem;
@@ -271,12 +286,15 @@ namespace CSB_program
                     emp.ShowDialog();
                     break;
                 case "positions":
+
                     break;
                 case "clients":
                     forClient cli = new forClient(idRec);
                     cli.ShowDialog();
                     break;
                 case "provider":
+                    forProvider provider = new forProvider(idRec);
+                    provider.ShowDialog();
                     break;
                 case "salesReceipt":
                     break;
@@ -295,7 +313,7 @@ namespace CSB_program
                 case "payment_type":
                     break;
             }
-            tableView.Items.Refresh();
+            getData();
         }
 
         //Добавление
@@ -360,11 +378,6 @@ namespace CSB_program
             }
         }
 
-        //Нажатие на кнопку обновить записи
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
-        {
-            tableView.Items.Refresh();
-        }
         //Нажатие на кнопку сформировать накладную
         private void btnFormInvoice_Click(object sender, RoutedEventArgs e)
         {
@@ -379,6 +392,41 @@ namespace CSB_program
                 report_invoice formInvoice = new report_invoice(idRec);
                 formInvoice.ShowDialog();
             }
+        }
+
+        //Нажатие на кнопку обновить записи
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            getData();
+        }
+
+        private bool addIntoDB(string query)
+        {
+            
+            ConnectionMSSQL conSQL = new ConnectionMSSQL();
+            SqlCommand cmd = conSQL.cmdSql;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = query;
+            try
+            {
+                using (conSQL.conn)
+                {
+                    conSQL.conn.Open();
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        MessageBox.Show("Данные успешно добавлены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Не удалось добавить запись", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return false;
         }
     }
 }

@@ -196,7 +196,7 @@
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>12pt</FontSize>
-                                <Format>dd.mm.yyyy 'г.' HH:mm:ss</Format>
+                                <Format>dd.MM.yyyy 'г.' HH:mm:ss</Format>
                                 <Color>#090057</Color>
                               </Style>
                             </TextRun>
@@ -222,6 +222,7 @@
                       </Style>
                     </Textbox>
                     <ColSpan>2</ColSpan>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -735,7 +736,6 @@
                       </Style>
                     </Textbox>
                     <ColSpan>3</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -1104,7 +1104,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.85449in</Height>
+    <Height>2.8545in</Height>
     <Style />
   </Body>
   <Width>11.75484in</Width>

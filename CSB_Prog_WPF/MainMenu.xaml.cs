@@ -237,15 +237,15 @@ namespace CSB_program
         //Нажатие на кнопку Покупка товаров
         private void btnBuyGoods_Click(object sender, RoutedEventArgs e)
         {
-            saleGoods saleGds = new saleGoods(Convert.ToInt32(idUser));
-            saleGds.Show();
+            forProduct product = new forProduct(Convert.ToInt32(idUser));
+            product.Show();
         }
 
         //Нажатие на кнопку Продажа товаров
         private void btnSaleGoods_Click(object sender, RoutedEventArgs e)
         {
-            forProduct product = new forProduct(Convert.ToInt32(idUser));
-            product.Show();
+            saleGoods saleGds = new saleGoods(Convert.ToInt32(idUser));
+            saleGds.Show();
         }
 
         //Нажатие на кнопку Поиск товаров

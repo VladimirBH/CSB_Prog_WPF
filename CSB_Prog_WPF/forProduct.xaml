@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSB_Prog_WPF"
         mc:Ignorable="d"
-        Height="560" Width="1250" FontFamily="Verdana" FontSize="14" WindowStartupLocation="CenterScreen">
+        Loaded="Window_Loaded"
+        Height="625.594" Width="1250" FontFamily="Verdana" FontSize="14" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Name="prog" TargetType="Button">
             <Setter Property="Template">
@@ -42,29 +43,36 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="182"/>
+            <RowDefinition Height="52"/>
         </Grid.RowDefinitions>
         <Label Content="Внесение товаров в базу" HorizontalAlignment="Left" Margin="10,11,0,11" Foreground="#FF090057" FontSize="25" Width="335" Grid.ColumnSpan="2"/>
         <Label Content="Наименование товара:" Margin="115,5,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF090057" Height="30" HorizontalAlignment="Left" Width="175" RenderTransformOrigin="0.595,0.594"/>
-        <TextBox Margin="10,22,0,18" Grid.Row="5" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBox Margin="10,5,0,0" Grid.Row="1" Foreground="#FF090057" BorderThickness="1" MaxLength="50" Padding="5,2" BorderBrush="#FF090057" TextWrapping="Wrap" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1" Height="90" VerticalAlignment="Top"/>
         <Label Content="Количество товара:" Margin="137,5,0,0" Grid.Row="2" Foreground="#FF090057" HorizontalAlignment="Left" Width="153" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
         <Label Content="Цена товара без НДС(руб.):" Margin="76,6,0,0" Grid.Row="3" Foreground="#FF090057" HorizontalAlignment="Left" Width="214" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
         <Label Content="НДС:" Margin="244,5,0,0" Grid.Row="4" Foreground="#FF090057" HorizontalAlignment="Left" Width="46" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
         <Label Content="Розничная цена товара(руб.):" Margin="62,5,0,0" Grid.Row="5" Foreground="#FF090057" HorizontalAlignment="Left" Width="228" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
-        <Label Content="Дата составления накладной:" Margin="62,5,0,0" Grid.Row="7" Foreground="#FF090057" HorizontalAlignment="Left" Width="228" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
-        <Label Content="Дата поставки:" Margin="170,5,0,0" Grid.Row="8" Foreground="#FF090057" HorizontalAlignment="Left" Width="120" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
-        <DataGrid Grid.Column="3" HorizontalAlignment="Left" Height="445" Margin="10,5,-6,0" Grid.Row="1" Grid.RowSpan="10" VerticalAlignment="Top" Width="559" Foreground="#FF090061" BorderBrush="{x:Null}" Background="#0C090057"/>
-        <TextBox Margin="10,5,0,5" Grid.Row="2" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBox Margin="10,6,0,4" Grid.Row="3" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBox Margin="10,5,0,5" Grid.Row="4" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBox Margin="10,5,0,5" Grid.Row="5" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <ComboBox Height="30" Margin="10,5,0,0" Grid.Row="9" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Background="{x:Null}" Grid.Column="1"/>
-        <DatePicker Margin="10,5,0,0" Grid.Row="7" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,0,0,0" Height="30" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Label Content="Поставщик:" Margin="197,5,0,0" Grid.Row="9" Foreground="#FF090057" HorizontalAlignment="Left" Width="94" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
-        <DatePicker Margin="10,5,0,0" Grid.Row="8" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,0,0,0" Height="30" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Button x:Name="btnAdd" Content="Внести данные" HorizontalAlignment="Center" Margin="10,9,10,0" VerticalAlignment="Top" Width="161" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="6" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
-        <Button x:Name="btnSubmit" Content="Записать" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="161" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="10" FontWeight="Bold" Cursor="Hand" Grid.Column="1"/>
-        <Button x:Name="btnCancel" Content="Отмена" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="161" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="10" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
+        <Label Content="Дата составления накладной:" Margin="62,6,0,0" Grid.Row="8" Foreground="#FF090057" HorizontalAlignment="Left" Width="228" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
+        <Label Content="Дата поставки:" Margin="170,6,0,0" Grid.Row="9" Foreground="#FF090057" HorizontalAlignment="Left" Width="120" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
+        <Label Content="Поставщик:" Margin="197,6,0,0" Grid.Row="10" Foreground="#FF090057" HorizontalAlignment="Left" Width="94" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGridProducts" Grid.Column="3" HorizontalAlignment="Left" Height="445" Margin="10,5,-6,0" Grid.Row="1" Grid.RowSpan="10" VerticalAlignment="Top" Width="559" Foreground="#FF090061" BorderBrush="{x:Null}" Background="#0C090057">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menuItemDelete" Header="Удалить" Click="menuItemDelete_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <TextBox x:Name="textBoxNameProduct" Margin="10,5,0,0" Grid.Row="1" Foreground="#FF090057" BorderThickness="1" MaxLength="50" Padding="5,2" BorderBrush="#FF090057" TextWrapping="Wrap" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1" Height="90" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxCountGds" Margin="10,5,0,5" Grid.Row="2" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="textBoxCostWithoutVat" Margin="10,6,0,4" Grid.Row="3" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="textBoxVat" Margin="10,5,0,5" Grid.Row="4" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBox x:Name="textBoxRetailCost" Margin="10,5,0,5" Grid.Row="5" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <DatePicker x:Name="datePickerDateCompilation" Margin="10,6,0,0" Grid.Row="8" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,5,0,0" Height="30" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <DatePicker x:Name="datePickerDateDelivery" Margin="10,6,0,0" Grid.Row="9" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" BorderBrush="#FF090057" Focusable="False" Padding="5,5,0,0" Height="30" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <ComboBox x:Name="comboBoxProvider" Height="30" Margin="10,6,0,0" Grid.Row="10" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Background="{x:Null}" Grid.Column="1"/>
+        <Button x:Name="btnAddProduct" Click="btnAddProduct_Click" Content="Внести данные" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="161" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="7" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
+        <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Записать" HorizontalAlignment="Center" Margin="10,52,10,-20" VerticalAlignment="Top" Width="161" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="10" FontWeight="Bold" Cursor="Hand" Grid.Column="1"/>
+        <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Отмена" HorizontalAlignment="Center" Margin="10,52,10,-20" VerticalAlignment="Top" Width="161" FontFamily="Verdana" FontSize="14" Height="21" Foreground="White" Background="#FFFF9000" Grid.Row="10" FontWeight="Bold" Cursor="Hand" Grid.Column="2"/>
+        <Label Content="Категория товара:" Margin="144,5,0,0" Grid.Row="6" Foreground="#FF090057" HorizontalAlignment="Left" Width="146" RenderTransformOrigin="0.595,0.594" Height="30" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBoxCategory" Height="30" Margin="10,5,0,0" Grid.Row="6" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="342" Grid.ColumnSpan="2" Background="{x:Null}" Grid.Column="1"/>
     </Grid>
 </Window>

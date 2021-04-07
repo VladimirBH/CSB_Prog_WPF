@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSB_Prog_WPF"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Height="780" Width="1200" FontFamily="Verdana" FontSize="14">
     <Window.Resources>
         <Style x:Name="prog" TargetType="Button">
@@ -37,21 +38,24 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="42"/>
         </Grid.RowDefinitions>
         <Label Content="Продажа" HorizontalAlignment="Left" Margin="10,10,0,17" Foreground="#FF090057" FontSize="25" Width="135"/>
         <Label Content="Номер товара:" Margin="81,5,0,0" Foreground="#FF090057" HorizontalAlignment="Left" Width="114" RenderTransformOrigin="0.595,0.594" Grid.Row="1" Height="30" VerticalAlignment="Top"/>
         <Label Content="Номер покупателя:" Margin="46,5,0,0" Foreground="#FF090057" HorizontalAlignment="Left" Width="149" RenderTransformOrigin="0.595,0.594" Grid.Row="2" Height="30" VerticalAlignment="Top"/>
         <Label Content="Способ оплаты:" Margin="71,5,0,0" Foreground="#FF090057" HorizontalAlignment="Left" Width="124" RenderTransformOrigin="0.595,0.594" Grid.Row="3" Height="30" VerticalAlignment="Top"/>
-        <Label Content="Способ продажи:" Margin="60,5,0,0" Foreground="#FF090057" HorizontalAlignment="Left" Width="135" RenderTransformOrigin="0.595,0.594" Grid.Row="4" Height="30" VerticalAlignment="Top"/>
-        <TextBox Grid.Column="1" Margin="10,5,0,5" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Grid.Row="1"/>
-        <TextBox Grid.Column="1" Margin="10,5,0,5" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Grid.Row="2"/>
-        <ComboBox Height="30" Margin="10,5,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Background="{x:Null}" Grid.Column="1"/>
-        <ComboBox Margin="10,5,0,0" Grid.Row="4" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,0,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Background="{x:Null}" Grid.Column="1" Height="30" VerticalAlignment="Top"/>
-        <DataGrid Margin="10,11,10,-501" Grid.Row="5" Grid.ColumnSpan="5"/>
-        <Button x:Name="btnSubmit" Content="Добавить" Margin="65,5,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Height="30" Foreground="White" Background="#FFFF9000" Grid.Row="4" FontWeight="Bold" Cursor="Hand" HorizontalAlignment="Left" Width="120" Grid.Column="2"/>
-        <Button x:Name="btnSubmit_Copy" Content="Оформить покупку" Margin="10,5,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Height="30" Foreground="White" Background="#FFFF9000" Grid.Row="4" FontWeight="Bold" Cursor="Hand" HorizontalAlignment="Left" Width="172" Grid.Column="3"/>
-        <Image Grid.Column="4" HorizontalAlignment="Left" Height="166" Margin="30,64,0,0" Grid.RowSpan="5" VerticalAlignment="Top" Width="172" Source="small_logo.png"/>
+        <TextBox x:Name="textBoxProductNumber" Grid.Column="1" Margin="10,5,0,5" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Grid.Row="1"/>
+        <TextBox x:Name="textBoxClientNumber" Grid.Column="1" Margin="10,5,0,5" Foreground="#FF090057" BorderThickness="0,0,0,1" MaxLength="50" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Grid.Row="2"/>
+        <ComboBox x:Name="comboBoxPaymentType" Height="30" Margin="10,5,0,0" Grid.Row="3" VerticalAlignment="Top" Foreground="#FF090057" BorderThickness="0,0,0,1" Padding="5,5,0,0" BorderBrush="#FF090057" HorizontalAlignment="Left" Width="266" Background="{x:Null}" Grid.Column="1"/>
+        <DataGrid x:Name="dataGridProducts" Margin="10,10,10,-501" Grid.Row="4" Grid.ColumnSpan="5">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menuItemDelete" Header="Удалить" Click="menuItemDelete_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Button x:Name="btnAddProduct" Content="Добавить" Margin="65,5,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Height="30" Foreground="White" Background="#FFFF9000" Grid.Row="3" FontWeight="Bold" Cursor="Hand" HorizontalAlignment="Left" Width="120" Grid.Column="2" Click="btnAddProduct_Click"/>
+        <Button x:Name="btnSubmit" Content="Оформить покупку" Margin="10,5,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="14" Height="30" Foreground="White" Background="#FFFF9000" Grid.Row="3" FontWeight="Bold" Cursor="Hand" HorizontalAlignment="Left" Width="172" Grid.Column="3" Click="btnSubmit_Click"/>
+        <Image Grid.Column="4" HorizontalAlignment="Left" Height="166" Margin="30,23,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="172" Source="small_logo.png"/>
     </Grid>
 </Window>

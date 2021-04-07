@@ -237,7 +237,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -374,6 +373,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -466,10 +466,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>CSB_INCDataSet</rd:DataSetName>
         <rd:SchemaPath>D:\Study\course_work2021_3_kurs\for_Курсач\CSB_Prog_WPF\CSB_Prog_WPF\CSB_INCDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>show_tovar</rd:TableName>
+        <rd:TableName>show_tovar_func</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>show_tovarTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>show_tovar_funcTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

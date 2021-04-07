@@ -35,8 +35,8 @@ namespace CSB_program
             this.show_purchase_invoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cSB_INCDataSet = new CSB_Prog_WPF.CSB_INCDataSet();
             this.button_exit = new System.Windows.Forms.Button();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.show_purchase_invoiceTableAdapter = new CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_purchase_invoiceTableAdapter();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.show_purchase_invoiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cSB_INCDataSet)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,10 @@ namespace CSB_program
             this.button_exit.UseVisualStyleBackColor = false;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
+            // show_purchase_invoiceTableAdapter
+            // 
+            this.show_purchase_invoiceTableAdapter.ClearBeforeFill = true;
+            // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -78,19 +82,15 @@ namespace CSB_program
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(1082, 601);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // show_purchase_invoiceTableAdapter
-            // 
-            this.show_purchase_invoiceTableAdapter.ClearBeforeFill = true;
+            this.reportViewer1.TabIndex = 24;
             // 
             // report_invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 712);
-            this.Controls.Add(this.button_exit);
             this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.button_exit);
             this.Font = new System.Drawing.Font("Verdana", 12F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(0)))), ((int)(((byte)(87)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -110,8 +110,8 @@ namespace CSB_program
         #endregion
         private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.BindingSource show_purchase_invoiceBindingSource;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private CSB_Prog_WPF.CSB_INCDataSet cSB_INCDataSet;
         private CSB_Prog_WPF.CSB_INCDataSetTableAdapters.show_purchase_invoiceTableAdapter show_purchase_invoiceTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }
